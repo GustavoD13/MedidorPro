@@ -11,7 +11,14 @@
 
    <br>
    <br>
-   <br>
+<!--<div class="row">
+      <div class="col-md-6 "></div>
+      <div class="col-md-2 ">
+        <button class="btn btn-success" v-on:click="addMedicion(uploadFiles)">
+          Guardar
+        </button>
+      </div>
+</div> -->
 </div>
     <div class="col-md-12" id="file-panel">
 
@@ -23,7 +30,7 @@
           <td>Total Consumido </td>          
           <td>Consumo Mes Anterior </td>
           <td>Consumo Mes Actual </td>
-          <td>Accion </td>
+          <td>Consumo Mes Actual </td>
         </tr>
       </thead>
 
@@ -35,12 +42,12 @@
           <td>{{ uf.totalConsumido }}</td>
           <td>{{ uf.consumoMesAnterior }}</td>
           <td>{{ uf.consumoMesActual }}</td>
-          <td>
-            <button class="btn btn-danger">
+         <td>
+            <button class="btn btn-danger" v-on:click="addMedicion(index)">
               Add
             </button>
           </td>
-
+    
         </tr>
       </tbody>
     </table>
@@ -150,11 +157,14 @@ export default {
         return false;
       }
     },
-      addMedicion(){
+      addMedicion(i){
         let uri = 'http://localhost:4000/medicion/add';
-        console.log(this.index);
-        this.axios.post(uri, this.uf).then((response) => {
+        console.log(this.uploadedFiles[i]);
+
+        this.axios.post(uri, this.uploadedFiles[i]).then((response) => {
           console.log(response);
+
+
           //toastr.success(response.data.item, 'Response');
          // this.$router.replace({ name: 'DisplayItem'})
         });

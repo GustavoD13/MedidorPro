@@ -6,6 +6,8 @@ const morgan = require('morgan');
   mongoose = require('mongoose'),
   //{ DB } = require('./config/DB'),
   itemRoutes = require('./routes/item');
+  medidorRoutes = require('./routes/medidor');
+  medicionRoutes = require('./routes/medicion');
 
 mongoose.Promise = global.Promise;
 
@@ -28,6 +30,8 @@ app.use(cors());
 
 // routes
 app.use('/items', itemRoutes);
+app.use('/medicion', medicionRoutes);
+app.use('/medidor', medidorRoutes);
 
 // static file
 app.use(express.static(path.join(__dirname, 'public')));

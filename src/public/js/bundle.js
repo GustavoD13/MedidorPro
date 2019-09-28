@@ -26256,7 +26256,7 @@ var render = function() {
             staticClass: "navbar-brand",
             attrs: { to: { name: "DisplayItem" } }
           },
-          [_vm._v("\n      VuejsNode\n    ")]
+          [_vm._v("\n      Medidor\n    ")]
         ),
         _vm._v(" "),
         _vm._m(0, false, false),
@@ -26279,7 +26279,7 @@ var render = function() {
                       staticClass: "nav-link",
                       attrs: { to: { name: "CreateItem" } }
                     },
-                    [_vm._v("\n            Create\n          ")]
+                    [_vm._v("\n            Crear\n          ")]
                   )
                 ],
                 1
@@ -38575,7 +38575,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(37)(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 
 /***/ }),
@@ -38717,11 +38717,13 @@ exports.default = {
         return false;
       }
     },
-    addMedicion: function addMedicion() {
+    addMedicion: function addMedicion(i) {
       var uri = 'http://localhost:4000/medicion/add';
-      console.log(this.index);
-      this.axios.post(uri, this.uf).then(function (response) {
+      console.log(this.uploadedFiles[i]);
+
+      this.axios.post(uri, this.uploadedFiles[i]).then(function (response) {
         console.log(response);
+
         //toastr.success(response.data.item, 'Response');
         // this.$router.replace({ name: 'DisplayItem'})
       });
@@ -38761,6 +38763,13 @@ exports.default = {
     });
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -53854,7 +53863,20 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(uf.consumoMesActual))]),
                 _vm._v(" "),
-                _vm._m(2, true, false)
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.addMedicion(index)
+                        }
+                      }
+                    },
+                    [_vm._v("\n              Add\n            ")]
+                  )
+                ])
               ])
             })
           )
@@ -53884,8 +53906,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
       _c("br")
     ])
   },
@@ -53905,17 +53925,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("Consumo Mes Actual ")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Accion ")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _vm._v("\n              Add\n            ")
+        _c("td", [_vm._v("Consumo Mes Actual ")])
       ])
     ])
   }

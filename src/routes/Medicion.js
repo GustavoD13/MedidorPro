@@ -6,8 +6,9 @@ var Medicion = require('../models/Medicion');
 // Defined store route
 medicionRoutes.route('/add').post((req, res, next) => {
     var medicion = new Medicion(req.body);
+    console.log(req.body);
     medicion.save()
-    .then(item => {
+    .then(medicion => {
       res.status(200).json({'medicion': 'Item added successfully'});
     })
     .catch(err => {

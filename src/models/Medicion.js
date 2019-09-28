@@ -6,8 +6,8 @@ var Medicion = new Schema({
   nroMedidor: { type: Number },
   totalConsumido: { type: String },
   consumoMesAnterior: { type: String },
-  consumoMesActual: { type: String },
-  medidorId: {type: mongoose.Schema.Types.ObjectId, ref: 'Medidor'}
+  consumoMesActual: { type: String } /*,
+  medidorId: {type: mongoose.Schema.Types.ObjectId, ref: 'Medidor'}*/
 },{
     collection: 'mediciones'
 });
