@@ -5,10 +5,10 @@ const morgan = require('morgan');
   cors = require('cors'),
   mongoose = require('mongoose'),
   //{ DB } = require('./config/DB'),
-  itemRoutes = require('./routes/item');
-  medidorRoutes = require('./routes/medidor');
+  
   medicionRoutes = require('./routes/medicion');
-
+  medidorRoutes = require('./routes/medidor');
+  itemRoutes = require('./routes/item');
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb+srv://admin_:Multi123@cluster0-kjgjp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true,
