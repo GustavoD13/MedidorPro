@@ -30,7 +30,7 @@ app.use(cors());
 
 // routes
 app.use('/medidor', medidorRoutes);
-app.use('/items', itemRoutes);
+app.use('/items', clienteRoutes);
 app.use('/medicion', medicionRoutes);
 
 
