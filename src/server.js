@@ -29,9 +29,10 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // routes
+app.use('/medidor', medidorRoutes);
 app.use('/items', itemRoutes);
 app.use('/medicion', medicionRoutes);
-app.use('/medidor', medidorRoutes);
+
 
 // static file
 app.use(express.static(path.join(__dirname, 'public')));

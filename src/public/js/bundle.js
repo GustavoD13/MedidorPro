@@ -54140,8 +54140,10 @@ exports.default = {
       });
 
       result.pop(); // remove the last item because undefined values
-
       return result; // JavaScript object
+    },
+    jsoncsv: function jsoncsv() {
+      console.log(this.parse_csv);
     },
     loadCSV: function loadCSV(e) {
       var vm = this;
@@ -54205,7 +54207,20 @@ var render = function() {
           _vm._v(" "),
           _vm._m(1, false, false),
           _vm._v(" "),
-          _vm._m(2, false, false),
+          _c("div", { staticClass: "col-sm-offset-3 col-sm-9" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    _vm.jsoncsv()
+                  }
+                }
+              },
+              [_vm._v("Parse CSV")]
+            )
+          ]),
           _vm._v(" "),
           _vm.parse_csv
             ? _c(
@@ -54245,7 +54260,7 @@ var render = function() {
                   _vm._l(_vm.parse_csv, function(csv) {
                     return _c(
                       "tr",
-                      { key: csv },
+                      { key: csv.channel_entries },
                       _vm._l(_vm.parse_header, function(key) {
                         return _c("td", { key: key }, [
                           _vm._v(
@@ -54285,16 +54300,6 @@ var staticRenderFns = [
           _c("input", { attrs: { type: "checkbox", id: "header_rows" } }),
           _vm._v(" File contains header row?")
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-offset-3 col-sm-9" }, [
-      _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-        _vm._v("Parse CSV")
       ])
     ])
   }

@@ -19,7 +19,7 @@
         </div>
         
         <div class="col-sm-offset-3 col-sm-9">
-          <a href="#" class="btn btn-primary">Parse CSV</a>
+          <a  class="btn btn-primary" v-on:click="jsoncsv()">Parse CSV</a>
         </div>
         <table v-if="parse_csv">
           <thead>
@@ -33,7 +33,7 @@
               </th>
             </tr>
           </thead> 
-          <tr v-for="csv in parse_csv" v-bind:key="csv">
+          <tr v-for="csv in parse_csv" v-bind:key="csv.channel_entries">
             <td v-for="key in parse_header" v-bind:key="key">
               {{csv[key]}}
             </td>
@@ -95,9 +95,12 @@ export default {
       })
       
       result.pop() // remove the last item because undefined values
-      
       return result // JavaScript object
     },
+    jsoncsv(){
+     console.log(this.parse_csv);
+    },
+
     loadCSV(e) {
       var vm = this
       if (window.FileReader) {
