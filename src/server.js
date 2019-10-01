@@ -8,7 +8,7 @@ const morgan = require('morgan');
   
   medicionRoutes = require('./routes/medicion');
   medidorRoutes = require('./routes/medidor');
-  itemRoutes = require('./routes/item');
+  clienteRoutes = require('./routes/item');
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb+srv://admin_:Multi123@cluster0-kjgjp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true,
